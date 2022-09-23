@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>javaweb环境配置 | 嘉日IT</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="Java" />
+  
+  
+  
+  
+  <meta name="description" content="1.配置JavaHome环境变量配置JavaHome环境变量前，请先确认电脑是否已经安装JDK。同时按Window键+R键，打开运行窗口，输入cmd后，按回车键，打开命令提示符窗口。 输入java --version命令，如果出现Java版本号，说明JDK已经安装，如出现其他信息说明JDK未安装或有其他问题。 右击此电脑。  打开属性。   点击环境变量。 新建JAVA_HOME系统变量，变量值">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaWeb环境配置">
+<meta property="og:url" content="https://jgry.gitee.io/jgry-it/2022/09/12/JavaWeb%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/index.html">
+<meta property="og:site_name" content="嘉日IT">
+<meta property="og:description" content="1.配置JavaHome环境变量配置JavaHome环境变量前，请先确认电脑是否已经安装JDK。同时按Window键+R键，打开运行窗口，输入cmd后，按回车键，打开命令提示符窗口。 输入java --version命令，如果出现Java版本号，说明JDK已经安装，如出现其他信息说明JDK未安装或有其他问题。 右击此电脑。  打开属性。   点击环境变量。 新建JAVA_HOME系统变量，变量值">
+<meta property="og:locale" content="ch_CN">
+<meta property="og:image" content="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/JavaWeb_post1.6hhe9c3vid80.webp">
+<meta property="og:image" content="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/images4.4bhhxint2li0.webp">
+<meta property="og:image" content="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/images5.4xj7shfln4g0.webp">
+<meta property="og:image" content="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/images1.5sz25yey3xg0.webp">
+<meta property="og:image" content="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/images2.3j3mzotw0vi0.webp">
+<meta property="og:image" content="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/images3.5bwxufys8200.webp">
+<meta property="og:image" content="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/images4.2a5hbn2plvi8.webp">
+<meta property="og:image" content="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/images4.6fj6vvbsi1w0.webp">
+<meta property="og:image" content="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/images4.qujelff996o.webp">
+<meta property="og:image" content="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/images4.30u3ggcls460.webp">
+<meta property="og:image" content="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/images4.5xeyrjf7e1w0.webp">
+<meta property="og:image" content="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/images4.2eyhd9nar8nw.webp">
+<meta property="og:image" content="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/images4.5pk9x3i1tzo0.webp">
+<meta property="og:image" content="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/images4.1iddrh8erg1s.webp">
+<meta property="og:image" content="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/images4.1j32xioirjxc.webp">
+<meta property="og:image" content="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/images4.1thu2payskxs.webp">
+<meta property="og:image" content="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/images5.3qnlgpo3s760.webp">
+<meta property="og:image" content="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/images5.54qdgaigc800.webp">
+<meta property="og:image" content="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/images5.4xg9g7c4m4w0.webp">
+<meta property="og:image" content="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/images5.3se4cnecfme0.webp">
+<meta property="og:image" content="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/images5.49bm2itu1m20.webp">
+<meta property="og:image" content="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/images5.2ydveh6h2740.webp">
+<meta property="og:image" content="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/images5.3rbbqkdwubq0.webp">
+<meta property="article:published_time" content="2022-09-12T08:00:40.000Z">
+<meta property="article:modified_time" content="2022-09-16T11:47:36.062Z">
+<meta property="article:author" content="嘉庚日本语言与文化学院">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/JavaWeb_post1.6hhe9c3vid80.webp">
+  
+    <link rel="alternate" href="/atom.xml" title="嘉日IT" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/jgry-it/css/images/logo.jpg">
+  <link rel="apple-touch-icon" href="/jgry-it/css/images/logo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <!-- <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"> -->
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt; src:url("/jgry-it/css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("/jgry-it/css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("/jgry-it/css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
+  
+<link rel="stylesheet" href="/jgry-it/css/style.css">
+
+
+  
+<script src="/jgry-it/js/jquery-3.1.1.min.js"></script>
+
+  
+<script src="/jgry-it/js/bootstrap.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/jgry-it/css/bootstrap.css" >
+
+  
+    
+<link rel="stylesheet" href="/jgry-it/css/dialog.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/jgry-it/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/jgry-it/css/vdonate.css" >
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="/jgry-it/js/jquery.ripples-min.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 border-width: 0px;  margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="300px" height="85px" alt="Hike News" src="/jgry-it/css/images/logo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/jgry-it/">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/jgry-it/archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/jgry-it/categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/jgry-it/tags">标签</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/jgry-it/about">关于</a> </li>
+                
+                  <li><div id="search-form-wrap" class="main-nav-link">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/jgry-it/',
+        CONTENT_URL: '/jgry-it/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/jgry-it/js/insight.js"></script>
+
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+
+      <!-- <div id="cards" >
+        <div class="w3-card-4 w3-margin" style="width:50%;">
+          <div class="w3-display-container w3-text-white">
+              <img src="https://atts.w3cschool.cn/img_london.jpg" alt="Lights" style="width:100%">
+              <div class="w3-xlarge w3-display-bottomleft w3-padding">伦敦60°华氏度</div>
+          </div>
+          <div class="w3-display-container w3-text-white">
+            <img src="https://atts.w3cschool.cn/img_london.jpg" alt="Lights" style="width:100%">
+            <div class="w3-xlarge w3-display-bottomleft w3-padding">伦敦60°华氏度</div>
+          </div>
+        </div>
+      </div> -->
+            
+      <div id="content" class="outer">
+        
+        <br/><br/><br/><br/><br/><br/>
+        
+        
+          <section id="main" style="float:none;"><article id="post-JavaWeb环境配置" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  
+    
+
+    <div id="articleInner" class="article-inner">
+      
+      
+        <header class="article-header">
+          
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      JavaWeb环境配置
+    </h1>
+  
+
+        </header>
+      
+      <div class="article-meta">
+        
+	<a href="/jgry-it/2022/09/12/JavaWeb%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" class="article-date">
+	  <time datetime="2022-09-12T08:00:40.000Z" itemprop="datePublished">2022-09-12</time>
+	</a>
+
+        
+    <a class="article-category-link" href="/jgry-it/categories/Java%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E2%85%A1/">Java程序设计Ⅱ</a>
+
+        
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		阅读量:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+        
+
+      </div>
+      <div class="article-entry" itemprop="articleBody">
+        
+          <p><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/JavaWeb_post1.6hhe9c3vid80.webp"></p>
+<h2 id="1-配置JavaHome环境变量"><a href="#1-配置JavaHome环境变量" class="headerlink" title="1.配置JavaHome环境变量"></a>1.配置JavaHome环境变量</h2><p>配置JavaHome环境变量前，请先确认电脑是否已经安装JDK。同时按Window键+R键，打开运行窗口，输入cmd后，按回车键，打开命令提示符窗口。<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb环境配置/images4.4bhhxint2li0.webp" style="margin:0;" /></p>
+<p><br/><br/><br>输入<b><code>java --version</code></b>命令，如果出现Java版本号，说明JDK已经安装，如出现其他信息说明JDK未安装或有其他问题。<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb环境配置/images5.4xj7shfln4g0.webp" style="margin:0;" /></p>
+<p><br/><br/><br>右击此电脑。<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb环境配置/images1.5sz25yey3xg0.webp" style="width:100%;height:100%;" /></p>
+<br/>
+打开属性。
+<img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb环境配置/images2.3j3mzotw0vi0.webp" style="width:100%;height:100%;" />
+
+<p><br/><br/><br>点击环境变量。<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb环境配置/images3.5bwxufys8200.webp" style="width:100%;height:100%;" /></p>
+<p><br/><br/><br>新建JAVA_HOME系统变量，变量值填入自己电脑的JDK所在的路径。填完之后，点击确定。<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb环境配置/images4.2a5hbn2plvi8.webp" style="margin:0;" /></p>
+<p><br/><br/><br>选择Path，点击编辑按钮。<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb环境配置/images4.6fj6vvbsi1w0.webp" style="margin:0;"/></p>
+<p><br/><br/><br>进入编辑环境变量窗口，点击新建按钮。<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb环境配置/images4.qujelff996o.webp" style="margin:0;" /></p>
+<p><br/><br/><br>配置JAVA_HOME环境变量。然后点击各个窗口的确定键。<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb环境配置/images4.30u3ggcls460.webp" style="margin:0;" /></p>
+<h2 id="2-配置Tomcat服务器"><a href="#2-配置Tomcat服务器" class="headerlink" title="2.配置Tomcat服务器"></a>2.配置Tomcat服务器</h2><p>解压Tomcat压缩包。<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb环境配置/images4.5xeyrjf7e1w0.webp" style="margin:0;" /></p>
+<p><br/><br/><br>打开解压后的文件夹。<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb环境配置/images4.2eyhd9nar8nw.webp" style="margin:0;" /></p>
+<p><br/><br/><br>打开Tomcat文件夹下的bin目录，双击startup.bat。<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb环境配置/images4.5pk9x3i1tzo0.webp" style="margin:0;" /></p>
+<p><br/><br/><br>如果出现如下图的黑色窗口，说明JAVA_HOME环境配置没有问题，Tomcat能正常启动。如果黑色窗口发生闪退打不开的现象时，说明JAVA_HOME或其他地方的配置存在问题，需要进行排查。<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb环境配置/images4.1iddrh8erg1s.webp" style="margin:0;" /></p>
+<p><br/><br/><br>上一步中黑色窗口显示的文字的是乱码文字，可以修改logging.properties，将UTF-8修改为GBK，修改完后，进行保存。<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb环境配置/images4.1j32xioirjxc.webp" style="margin:0;" /></p>
+<p><br/><br/><br>重启Tomcat服务器，查看此时黑色窗口的乱码文字是否已变成正常显示的汉字。<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb环境配置/images4.1thu2payskxs.webp" style="margin:0;" /></p>
+<p><br/><br/><br>回到Tomcat文件下，在webapps文件夹下，新建JavaWeb文件夹。<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb环境配置/images5.3qnlgpo3s760.webp" style="margin:0;" /></p>
+<p><br/><br/><br>然后再打开ROOT文件夹，复制WEB-INF文件夹和index.jsp到上一步中新建的JavaWeb文件夹里。<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb环境配置/images5.54qdgaigc800.webp" style="margin:0;" /></p>
+<p><br/><br/><br>这一步是配置虚拟目录。打开Tomcat的conf文件夹，找到server.xml文件并打开，然后将<b><code>&lt;Context path=&quot;projects&quot; docBase=&quot;&quot; /&gt;</code></b>复制粘贴到原来148行的</Host>的前面一行里并保存。<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb环境配置/images5.4xg9g7c4m4w0.webp" style="margin:0;" /></p>
+<p><br/><br/><br>返回Tomcat文件夹，打开刚才新建的JavaWeb文件夹，复制其路径。<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb环境配置/images5.3se4cnecfme0.webp" style="margin:0;" /></p>
+<p><br/><br/><br>将复制的路径粘贴到server.xml文件的第148行里的docBase后的双引号里面。<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb环境配置/images5.49bm2itu1m20.webp" style="margin:0;" /></p>
+<p><br/><br/><br>为了更好的使用项目文件里的文件，我们可以打开listings的设置，将服务器上的文件列表显示到页面上。打开conf文件夹下面的web.xml文件，然后找到127行，将<b><code>false</code></b>改成<b><code>true</code></b>并保存。<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb环境配置/images5.2ydveh6h2740.webp" style="margin:0;" /></p>
+<p><br/><br/><br>还是在web.xml文件中，然后找到4737行，将<b><code>&lt;welcome-file-list&gt;</code></b>里的代码全部注释掉(同时按Window键+&#x2F;键进行注释)并保存。<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb环境配置/images5.3rbbqkdwubq0.webp" style="margin:0;" /></p>
+<iframe style='width: 710px;height: 400px' src="//player.bilibili.com/player.html?aid=27643533&bvid=BV11s411P7pg&cid=47703725&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+        
+      </div>
+      <footer class="article-footer">
+        
+          <div id="donation_div"></div>
+
+
+<script src="/jgry-it/js/vdonate.js"></script>
+
+<script>
+var a = new Donate({
+  title: '', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: '',
+  alipayImage: ''
+});
+</script>
+        
+        
+        <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong>嘉庚日本语言与文化学院</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/jgry-it/2022/09/12/JavaWeb环境配置/" target="_blank" title="JavaWeb环境配置">https://jgry.gitee.io/jgry-it/2022/09/12/JavaWeb环境配置/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+        
+        
+          
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+        
+        
+          
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/jgry-it/tags/Java/" rel="tag">Java</a></li></ul>
+
+        
+      </footer>
+    </div>
+    
+      
+<nav id="article-nav">
+  
+    <a href="/jgry-it/2022/09/13/JSP%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          JSP基础语法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/jgry-it/2022/09/09/Gitee%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Gitee使用教程</div>
+    </a>
+  
+</nav>
+
+    
+    
+  
+
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E9%85%8D%E7%BD%AEJavaHome%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-number">1.</span> <span class="nav-text">1.配置JavaHome环境变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E9%85%8D%E7%BD%AETomcat%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">2.</span> <span class="nav-text">2.配置Tomcat服务器</span></a></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+        <div class="container">
+          <div class="row">
+            <p id="copyRightEn">
+              Copyright &copy; 2022
+                <!-- 
+            <img width="25px" height="28px" alt="jp_logo" src="../../../../css/images/jp_logo.jpg" />
+           -->
+                厦门大学嘉庚学院日本语言与文化学院 All Rights Reserved.
+            </p>
+
+            <span id="sitetime"></span>
+            <script language="javascript">
+              function siteTime(){
+                window.setTimeout("siteTime()", 1000);
+                var seconds = 1000;
+                var minutes = seconds * 60;
+                var hours = minutes * 60;
+                var days = hours * 24;
+                var years = days * 365;
+                var today = new Date();
+                var todayYear = today.getFullYear();
+                var todayMonth = today.getMonth()+1;
+                var todayDate = today.getDate();
+                var todayHour = today.getHours();
+                var todayMinute = today.getMinutes();
+                var todaySecond = today.getSeconds();
+                /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+                year - 作为date对象的年份，为4位年份值
+                month - 0-11之间的整数，做为date对象的月份
+                day - 1-31之间的整数，做为date对象的天数
+                hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+                minutes - 0-59之间的整数，做为date对象的分钟数
+                seconds - 0-59之间的整数，做为date对象的秒数
+                microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+                var t1 = Date.UTC(2022,09,09,00,00,00); //北京时间2022-09-09 00:00:00
+                var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+                var diff = t2-t1;
+                var diffYears = Math.floor(diff/years);
+                var diffDays = Math.floor((diff/days)-diffYears*365);
+                var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+                var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+                var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+                document.getElementById("sitetime").innerHTML=" 本网站已运行 "+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+              }/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+              siteTime();
+            </script>
+            <img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb环境配置/logo.39646548aoc0.gif" alt="Windmill" class="windmill">
+            <p class="busuanzi_uv">
+              访客数 : <span id="busuanzi_value_site_uv"></span> |  
+              访问量 : <span id="busuanzi_value_site_pv"></span>
+            </p>
+            <!-- 
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		    -->
+          </div>
+
+          <!-- <div class="img-list">
+      <div class="list-wrapper">
+        <ul>
+          <li style="opacity: 1; top: 0rem; left: 0rem; width: 1.3rem; z-index: 3;"><a href="news/qhxk/smqh.htm" onclick="_addDynClicks(&quot;wbimage&quot;, 1714694451, 61010)" target="_blank"><img alt="" src="https://source.unsplash.com/collection/954550/1920x1080"></a></li>         
+
+          <li style="opacity: 1; top: 0.125rem; left: 1.2rem; width: 1.1rem; z-index: 2;"><a href="news/qhxk/qhxytx.htm" onclick="_addDynClicks(&quot;wbimage&quot;, 1714694451, 61012)" target="_blank"><img alt="" src="https://source.unsplash.com/collection/954550/1920x1080"></a></li>         
+
+          <li style="opacity: 1; top: 0.3rem; left: 2rem; width: 0.8rem; z-index: 1;"><a href="news/qhxk/xqh.htm" onclick="_addDynClicks(&quot;wbimage&quot;, 1714694451, 61009)" target="_blank"><img alt="" src="https://source.unsplash.com/collection/954550/1920x1080"></a></li>         
+
+          <li style="opacity: 1; z-index: 0; top: 0.125rem; left: -1rem; width: 1.1rem;"><a href="new/image/2022qinghuagailan20220425.pdf" onclick="_addDynClicks(&quot;wbimage&quot;, 1714694451, 61011)" target="_blank"><img alt="" src="https://source.unsplash.com/collection/954550/1920x1080"></a></li>         
+        </ul>
+      </div>
+    </div> -->
+
+        </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+  var wrapdiv = document.getElementById("wrap");
+  var contentdiv = document.getElementById("content");
+  var allheader = document.getElementById("allheader");
+
+  wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+  if (allheader != null) {
+    contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+  } else {
+    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+  }
+</script>
+
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/jgry-it/" class="mobile-nav-link">首页</a>
+  
+    <a href="/jgry-it/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="/jgry-it/categories" class="mobile-nav-link">分类</a>
+  
+    <a href="/jgry-it/tags" class="mobile-nav-link">标签</a>
+  
+    <a href="/jgry-it/about" class="mobile-nav-link">关于</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  
+<link rel="stylesheet" href="/jgry-it/fancybox/jquery.fancybox.css">
+
+  
+<script src="/jgry-it/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/jgry-it/js/scripts.js"></script>
+
+
+
+
+
+  
+<script src="/jgry-it/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            嘉日IT
+          </div>
+          <div class="panel-body">
+            Copyright © 2022 嘉庚日本语言与文化学院 All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/jgry-it/js/totop.js?v=1.0.0" async=""></script>
+  <script type="text/javascript" src="/jgry-it/js/home.js" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

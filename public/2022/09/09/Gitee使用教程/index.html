@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>gitee使用教程 | 嘉日IT</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="git开发工具" />
+  
+  
+  
+  
+  <meta name="description" content="1.Gitee是什么？Gitee是开源中国（OSChina）推出的基于Git的代码托管服务。 Gitee（码云）是开源中国社区推出的代码托管协作开发平台，支持Git和SVN，提供免费的私有仓库托管。Gitee专为开发者提供稳定、高效、安全的云端软件开发协作平台，无论是个人、团队、或是企业，都能够实现代码托管、项目管理、协作开发。 Gitee目前已经成为国内最大的代码托管平台，致力于为国内开发者提">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Gitee使用教程">
+<meta property="og:url" content="https://jgry.gitee.io/jgry-it/2022/09/09/Gitee%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/index.html">
+<meta property="og:site_name" content="嘉日IT">
+<meta property="og:description" content="1.Gitee是什么？Gitee是开源中国（OSChina）推出的基于Git的代码托管服务。 Gitee（码云）是开源中国社区推出的代码托管协作开发平台，支持Git和SVN，提供免费的私有仓库托管。Gitee专为开发者提供稳定、高效、安全的云端软件开发协作平台，无论是个人、团队、或是企业，都能够实现代码托管、项目管理、协作开发。 Gitee目前已经成为国内最大的代码托管平台，致力于为国内开发者提">
+<meta property="og:locale" content="ch_CN">
+<meta property="og:image" content="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/Gittee%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/web_developer.v8dkdnm60kg.webp">
+<meta property="og:image" content="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/Gittee%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/gitee-regist.1k02emg21czk.webp">
+<meta property="og:image" content="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/Gittee%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/git-download.5aucbju78u80.webp">
+<meta property="article:published_time" content="2022-09-09T13:46:16.000Z">
+<meta property="article:modified_time" content="2022-09-12T07:57:08.251Z">
+<meta property="article:author" content="嘉庚日本语言与文化学院">
+<meta property="article:tag" content="git">
+<meta property="article:tag" content="开发工具">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/Gittee%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/web_developer.v8dkdnm60kg.webp">
+  
+    <link rel="alternate" href="/atom.xml" title="嘉日IT" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/jgry-it/css/images/logo.jpg">
+  <link rel="apple-touch-icon" href="/jgry-it/css/images/logo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <!-- <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"> -->
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt; src:url("/jgry-it/css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("/jgry-it/css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("/jgry-it/css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
+  
+<link rel="stylesheet" href="/jgry-it/css/style.css">
+
+
+  
+<script src="/jgry-it/js/jquery-3.1.1.min.js"></script>
+
+  
+<script src="/jgry-it/js/bootstrap.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/jgry-it/css/bootstrap.css" >
+
+  
+    
+<link rel="stylesheet" href="/jgry-it/css/dialog.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/jgry-it/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/jgry-it/css/vdonate.css" >
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="/jgry-it/js/jquery.ripples-min.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 border-width: 0px;  margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="300px" height="85px" alt="Hike News" src="/jgry-it/css/images/logo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/jgry-it/">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/jgry-it/archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/jgry-it/categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/jgry-it/tags">标签</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/jgry-it/about">关于</a> </li>
+                
+                  <li><div id="search-form-wrap" class="main-nav-link">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/jgry-it/',
+        CONTENT_URL: '/jgry-it/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/jgry-it/js/insight.js"></script>
+
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+
+      <!-- <div id="cards" >
+        <div class="w3-card-4 w3-margin" style="width:50%;">
+          <div class="w3-display-container w3-text-white">
+              <img src="https://atts.w3cschool.cn/img_london.jpg" alt="Lights" style="width:100%">
+              <div class="w3-xlarge w3-display-bottomleft w3-padding">伦敦60°华氏度</div>
+          </div>
+          <div class="w3-display-container w3-text-white">
+            <img src="https://atts.w3cschool.cn/img_london.jpg" alt="Lights" style="width:100%">
+            <div class="w3-xlarge w3-display-bottomleft w3-padding">伦敦60°华氏度</div>
+          </div>
+        </div>
+      </div> -->
+            
+      <div id="content" class="outer">
+        
+        <br/><br/><br/><br/><br/><br/>
+        
+        
+          <section id="main" style="float:none;"><article id="post-Gitee使用教程" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  
+    
+
+    <div id="articleInner" class="article-inner">
+      
+      
+        <header class="article-header">
+          
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      Gitee使用教程
+    </h1>
+  
+
+        </header>
+      
+      <div class="article-meta">
+        
+	<a href="/jgry-it/2022/09/09/Gitee%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" class="article-date">
+	  <time datetime="2022-09-09T13:46:16.000Z" itemprop="datePublished">2022-09-09</time>
+	</a>
+
+        
+    <a class="article-category-link" href="/jgry-it/categories/%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">使用教程</a>
+
+        
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		阅读量:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+        
+
+      </div>
+      <div class="article-entry" itemprop="articleBody">
+        
+          <p><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/Gittee%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/web_developer.v8dkdnm60kg.webp"></p>
+<h2 id="1-Gitee是什么？"><a href="#1-Gitee是什么？" class="headerlink" title="1.Gitee是什么？"></a>1.Gitee是什么？</h2><p>Gitee是开源中国（OSChina）推出的基于Git的代码托管服务。</p>
+<p>Gitee（码云）是开源中国社区推出的代码托管协作开发平台，支持Git和SVN，提供免费的私有仓库托管。Gitee专为开发者提供稳定、高效、安全的云端软件开发协作平台，无论是个人、团队、或是企业，都能够实现代码托管、项目管理、协作开发。</p>
+<p>Gitee目前已经成为国内最大的代码托管平台，致力于为国内开发者提供优质稳定的托管服务，与GitHub类似区别在于码云国内，GitHub国外。</p>
+<h2 id="2-为什么使用Git"><a href="#2-为什么使用Git" class="headerlink" title="2.为什么使用Git?"></a>2.为什么使用Git?</h2><p>在开发项目的时候，我们可能会经常修改代码，但是有时候会遇到想查看某一时间的代码的情况。如果没有版本控制器，你可能需要不断地定时备份代码，但这样显然是很麻烦的，而且备份也不一定好用。比如某个时间点并没有修改代码，那么备份就重复了；再比如虽然备份了代码，但你并不知道两个版本有什么区别。</p>
+<p>为了解决上面的一些问题，一些工程师便尝试开发代码版本控制器系统。每次当你修改完代码想进行备份时，只需要输入简单的命令，版本控制系统便会帮你完成备份操作。最为常见的版本控制系统是分布式版本控制系统和中央版本控制系统。</p>
+<h3 id="中央版本控制系统"><a href="#中央版本控制系统" class="headerlink" title="中央版本控制系统"></a>中央版本控制系统</h3><p>中央版本控制系统必须存在两个端，服务端和客户端，当进行代码备份时，客户端会向服务端发出请求，并将此次修改的内容发送到服务器当中去；服务端收到请求后，会将代码存储在服务器当中；同样当客户端想查看某一个版本的修改内容或者想恢复到某一个版本之时，客户端也会发送请求到服务端，服务在端接收到请求之后会做出相应的处理并返回给客户端。</p>
+<h3 id="分布式版本控制系统"><a href="#分布式版本控制系统" class="headerlink" title="分布式版本控制系统"></a>分布式版本控制系统</h3><p>分布式版本控制器，主要是将备份的代码以及记录完全独立在本地存储，比如说上面提到，当你想将代码恢复到某一个版本的时候，本地版本控制器，不需要依赖网络便可以完成此操作，因为本地版本控制器拥有完整独立的控制系统。</p>
+<h2 id="3-Gitee的注册登录"><a href="#3-Gitee的注册登录" class="headerlink" title="3.Gitee的注册登录"></a>3.Gitee的注册登录</h2><p>打开<a target="_blank" rel="noopener" href="https://gitee.com/">Gitee官网</a>注册登录即可。</p>
+<p><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/Gittee%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/gitee-regist.1k02emg21czk.webp"></p>
+<h2 id="4-下载Git"><a href="#4-下载Git" class="headerlink" title="4.下载Git"></a>4.下载Git</h2><p>因为Gitee是基于Git的代码管理库，所以如果想利用Gitee管理代码，Git的安装必不可少。</p>
+<p>打开<a target="_blank" rel="noopener" href="https://git-scm.com/">Git官网</a>下载Git,下载红框里的Windows最新版本。</p>
+<img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/Gittee使用教程/git-download.5aucbju78u80.webp" style="zoom:50%;" />
+
+
+
+
+<br/>
+
+<h2 id="5-基本命令汇总："><a href="#5-基本命令汇总：" class="headerlink" title="5.基本命令汇总："></a>5.基本命令汇总：</h2><p>Git 的工作就是创建和保存你项目的快照及与之后的快照进行对比。它有四个位置：</p>
+<p><strong>workspace：工作区</strong><br><strong>staging area：暂存区&#x2F;缓存区</strong><br><strong>local repository：版本库或本地仓库</strong><br><strong>remote repository：远程仓库</strong></p>
+<table>
+<thead>
+<tr>
+<th>Git命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>git init</td>
+<td>初始化仓库</td>
+</tr>
+<tr>
+<td>git clone</td>
+<td>拷贝一份远程仓库，也就是下载一个项目</td>
+</tr>
+<tr>
+<td>git add</td>
+<td>添加文件到暂存区</td>
+</tr>
+<tr>
+<td>git status</td>
+<td>查看仓库当前的状态，显示有变更的文件</td>
+</tr>
+<tr>
+<td>git diff</td>
+<td>比较文件的不同，即暂存区和工作区的差异</td>
+</tr>
+<tr>
+<td>git commit</td>
+<td>提交暂存区到本地仓库</td>
+</tr>
+<tr>
+<td>git reset</td>
+<td>回退版本</td>
+</tr>
+<tr>
+<td>git rm</td>
+<td>删除工作区文件</td>
+</tr>
+<tr>
+<td>git mv</td>
+<td>移动或重命名工作区文件</td>
+</tr>
+<tr>
+<td>git log</td>
+<td>查看历史提交记录</td>
+</tr>
+<tr>
+<td>git blame <file></td>
+<td>以列表形式查看指定文件的历史修改记录</td>
+</tr>
+<tr>
+<td>git remote</td>
+<td>远程仓库操作</td>
+</tr>
+<tr>
+<td>git fetch</td>
+<td>从远程获取代码库</td>
+</tr>
+<tr>
+<td>git pull</td>
+<td>下载远程代码并合并</td>
+</tr>
+<tr>
+<td>git push</td>
+<td>上传远程代码并合并</td>
+</tr>
+<tr>
+<td>git branch -a</td>
+<td>查看所有分支</td>
+</tr>
+<tr>
+<td>git checkout 分支名称</td>
+<td>切换到某一分支</td>
+</tr>
+<tr>
+<td>git merge 原分支 目标分支</td>
+<td>合并分支</td>
+</tr>
+<tr>
+<td>git status</td>
+<td>查看本地分支文件信息，确保更新时不产生冲突</td>
+</tr>
+<tr>
+<td>git branch</td>
+<td>查看当前分支情况</td>
+</tr>
+</tbody></table>
+
+        
+      </div>
+      <footer class="article-footer">
+        
+          <div id="donation_div"></div>
+
+
+<script src="/jgry-it/js/vdonate.js"></script>
+
+<script>
+var a = new Donate({
+  title: '', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: '',
+  alipayImage: ''
+});
+</script>
+        
+        
+        <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong>嘉庚日本语言与文化学院</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/jgry-it/2022/09/09/Gitee使用教程/" target="_blank" title="Gitee使用教程">https://jgry.gitee.io/jgry-it/2022/09/09/Gitee使用教程/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+        
+        
+          
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+        
+        
+          
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/jgry-it/tags/git/" rel="tag">git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/jgry-it/tags/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/" rel="tag">开发工具</a></li></ul>
+
+        
+      </footer>
+    </div>
+    
+      
+<nav id="article-nav">
+  
+    <a href="/jgry-it/2022/09/12/JavaWeb%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          JavaWeb环境配置
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+    
+    
+  
+
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Gitee%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">1.Gitee是什么？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8Git"><span class="nav-number">2.</span> <span class="nav-text">2.为什么使用Git?</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%AD%E5%A4%AE%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F"><span class="nav-number">2.1.</span> <span class="nav-text">中央版本控制系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E7%B3%BB%E7%BB%9F"><span class="nav-number">2.2.</span> <span class="nav-text">分布式版本控制系统</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Gitee%E7%9A%84%E6%B3%A8%E5%86%8C%E7%99%BB%E5%BD%95"><span class="nav-number">3.</span> <span class="nav-text">3.Gitee的注册登录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E4%B8%8B%E8%BD%BDGit"><span class="nav-number">4.</span> <span class="nav-text">4.下载Git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E5%9F%BA%E6%9C%AC%E5%91%BD%E4%BB%A4%E6%B1%87%E6%80%BB%EF%BC%9A"><span class="nav-number">5.</span> <span class="nav-text">5.基本命令汇总：</span></a></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+        <div class="container">
+          <div class="row">
+            <p id="copyRightEn">
+              Copyright &copy; 2022
+                <!-- 
+            <img width="25px" height="28px" alt="jp_logo" src="../../../../css/images/jp_logo.jpg" />
+           -->
+                厦门大学嘉庚学院日本语言与文化学院 All Rights Reserved.
+            </p>
+
+            <span id="sitetime"></span>
+            <script language="javascript">
+              function siteTime(){
+                window.setTimeout("siteTime()", 1000);
+                var seconds = 1000;
+                var minutes = seconds * 60;
+                var hours = minutes * 60;
+                var days = hours * 24;
+                var years = days * 365;
+                var today = new Date();
+                var todayYear = today.getFullYear();
+                var todayMonth = today.getMonth()+1;
+                var todayDate = today.getDate();
+                var todayHour = today.getHours();
+                var todayMinute = today.getMinutes();
+                var todaySecond = today.getSeconds();
+                /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+                year - 作为date对象的年份，为4位年份值
+                month - 0-11之间的整数，做为date对象的月份
+                day - 1-31之间的整数，做为date对象的天数
+                hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+                minutes - 0-59之间的整数，做为date对象的分钟数
+                seconds - 0-59之间的整数，做为date对象的秒数
+                microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+                var t1 = Date.UTC(2022,09,09,00,00,00); //北京时间2022-09-09 00:00:00
+                var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+                var diff = t2-t1;
+                var diffYears = Math.floor(diff/years);
+                var diffDays = Math.floor((diff/days)-diffYears*365);
+                var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+                var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+                var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+                document.getElementById("sitetime").innerHTML=" 本网站已运行 "+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+              }/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+              siteTime();
+            </script>
+            <img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb环境配置/logo.39646548aoc0.gif" alt="Windmill" class="windmill">
+            <p class="busuanzi_uv">
+              访客数 : <span id="busuanzi_value_site_uv"></span> |  
+              访问量 : <span id="busuanzi_value_site_pv"></span>
+            </p>
+            <!-- 
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		    -->
+          </div>
+
+          <!-- <div class="img-list">
+      <div class="list-wrapper">
+        <ul>
+          <li style="opacity: 1; top: 0rem; left: 0rem; width: 1.3rem; z-index: 3;"><a href="news/qhxk/smqh.htm" onclick="_addDynClicks(&quot;wbimage&quot;, 1714694451, 61010)" target="_blank"><img alt="" src="https://source.unsplash.com/collection/954550/1920x1080"></a></li>         
+
+          <li style="opacity: 1; top: 0.125rem; left: 1.2rem; width: 1.1rem; z-index: 2;"><a href="news/qhxk/qhxytx.htm" onclick="_addDynClicks(&quot;wbimage&quot;, 1714694451, 61012)" target="_blank"><img alt="" src="https://source.unsplash.com/collection/954550/1920x1080"></a></li>         
+
+          <li style="opacity: 1; top: 0.3rem; left: 2rem; width: 0.8rem; z-index: 1;"><a href="news/qhxk/xqh.htm" onclick="_addDynClicks(&quot;wbimage&quot;, 1714694451, 61009)" target="_blank"><img alt="" src="https://source.unsplash.com/collection/954550/1920x1080"></a></li>         
+
+          <li style="opacity: 1; z-index: 0; top: 0.125rem; left: -1rem; width: 1.1rem;"><a href="new/image/2022qinghuagailan20220425.pdf" onclick="_addDynClicks(&quot;wbimage&quot;, 1714694451, 61011)" target="_blank"><img alt="" src="https://source.unsplash.com/collection/954550/1920x1080"></a></li>         
+        </ul>
+      </div>
+    </div> -->
+
+        </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+  var wrapdiv = document.getElementById("wrap");
+  var contentdiv = document.getElementById("content");
+  var allheader = document.getElementById("allheader");
+
+  wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+  if (allheader != null) {
+    contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+  } else {
+    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+  }
+</script>
+
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/jgry-it/" class="mobile-nav-link">首页</a>
+  
+    <a href="/jgry-it/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="/jgry-it/categories" class="mobile-nav-link">分类</a>
+  
+    <a href="/jgry-it/tags" class="mobile-nav-link">标签</a>
+  
+    <a href="/jgry-it/about" class="mobile-nav-link">关于</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  
+<link rel="stylesheet" href="/jgry-it/fancybox/jquery.fancybox.css">
+
+  
+<script src="/jgry-it/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/jgry-it/js/scripts.js"></script>
+
+
+
+
+
+  
+<script src="/jgry-it/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            嘉日IT
+          </div>
+          <div class="panel-body">
+            Copyright © 2022 嘉庚日本语言与文化学院 All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/jgry-it/js/totop.js?v=1.0.0" async=""></script>
+  <script type="text/javascript" src="/jgry-it/js/home.js" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

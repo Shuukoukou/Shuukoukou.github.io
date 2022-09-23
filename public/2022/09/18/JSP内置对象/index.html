@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>jsp内置对象 | 嘉日IT</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <meta name="keywords" content="Java" />
+  
+  
+  
+  
+  <meta name="description" content="🚀1. request对象💬用户每访问一个页面，就会产生一个HTTP请求。这些请求中一般都包含了请求所需的参数值或者信息，如果将request对象看作是客户请求的一个实例，那么这个实例就包含了客户请求的所有数据。因此，可以通过request来获取客户端和服务端的信息，如IP地址、传递的参数名和参数值、应用系统名称、服务器主机名称等。 ⚡request对象的常用方法    方法 方法说明">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JSP内置对象">
+<meta property="og:url" content="https://jgry.gitee.io/jgry-it/2022/09/18/JSP%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/index.html">
+<meta property="og:site_name" content="嘉日IT">
+<meta property="og:description" content="🚀1. request对象💬用户每访问一个页面，就会产生一个HTTP请求。这些请求中一般都包含了请求所需的参数值或者信息，如果将request对象看作是客户请求的一个实例，那么这个实例就包含了客户请求的所有数据。因此，可以通过request来获取客户端和服务端的信息，如IP地址、传递的参数名和参数值、应用系统名称、服务器主机名称等。 ⚡request对象的常用方法    方法 方法说明">
+<meta property="og:locale" content="ch_CN">
+<meta property="og:image" content="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JSP%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/JSP%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1.1240hwhts5ow.webp">
+<meta property="og:image" content="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JSP%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/J_1.1ce1hu5wzpy8.webp">
+<meta property="og:image" content="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JSP%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/J_2.5fh8lfka5q40.webp">
+<meta property="og:image" content="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JSP%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/J_3.55ggsrxpc5o0.webp">
+<meta property="og:image" content="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JSP%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/J_4.1c2mb5iy863k.webp">
+<meta property="og:image" content="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JSP%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/J_5.3bwz1xo8rg20.webp">
+<meta property="article:published_time" content="2022-09-18T04:13:49.000Z">
+<meta property="article:modified_time" content="2022-09-20T02:03:30.004Z">
+<meta property="article:author" content="嘉庚日本语言与文化学院">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JSP%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/JSP%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1.1240hwhts5ow.webp">
+  
+    <link rel="alternate" href="/atom.xml" title="嘉日IT" type="application/atom+xml">
+  
+
+  
+
+  <link rel="icon" href="/jgry-it/css/images/logo.jpg">
+  <link rel="apple-touch-icon" href="/jgry-it/css/images/logo.jpg">
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat:700" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic" rel="stylesheet" type="text/css">
+  <!-- <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"> -->
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <style type="text/css">
+    @font-face{font-family:futura-pt; src:url("/jgry-it/css/fonts/FuturaPTBold.otf") format("woff");font-weight:500;font-style:normal;}
+    @font-face{font-family:futura-pt-light; src:url("/jgry-it/css/fonts/FuturaPTBook.otf") format("woff");font-weight:lighter;font-style:normal;}
+    @font-face{font-family:futura-pt-italic; src:url("/jgry-it/css/fonts/FuturaPTBookOblique.otf") format("woff");font-weight:400;font-style:italic;}
+}
+
+  </style>
+  
+<link rel="stylesheet" href="/jgry-it/css/style.css">
+
+
+  
+<script src="/jgry-it/js/jquery-3.1.1.min.js"></script>
+
+  
+<script src="/jgry-it/js/bootstrap.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="/jgry-it/css/bootstrap.css" >
+
+  
+    
+<link rel="stylesheet" href="/jgry-it/css/dialog.css">
+
+  
+
+  
+
+  
+    <link rel="stylesheet" href="/jgry-it/css/header-post.css" >
+  
+
+  
+  
+  
+    <link rel="stylesheet" href="/jgry-it/css/vdonate.css" >
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  <script src="/jgry-it/js/jquery.ripples-min.js"></script>
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+
+  <body data-spy="scroll" data-target="#toc" data-offset="50">
+
+
+  
+  <div id="container">
+    <div id="wrap">
+      
+        <header>
+
+    <div id="allheader" class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar-inner">
+          
+          <div class="container"> 
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+
+            
+              <a class="brand" style="
+                 border-width: 0px;  margin-top: 0px;"  
+                href="#" data-toggle="modal" data-target="#myModal" >
+                  <img width="300px" height="85px" alt="Hike News" src="/jgry-it/css/images/logo.jpg">
+              </a>
+            
+            
+            <div class="navbar-collapse collapse">
+              <ul class="hnav navbar-nav">
+                
+                  <li> <a class="main-nav-link" href="/jgry-it/">首页</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/jgry-it/archives">归档</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/jgry-it/categories">分类</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/jgry-it/tags">标签</a> </li>
+                
+                  <li> <a class="main-nav-link" href="/jgry-it/about">关于</a> </li>
+                
+                  <li><div id="search-form-wrap" class="main-nav-link">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/jgry-it/',
+        CONTENT_URL: '/jgry-it/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/jgry-it/js/insight.js"></script>
+
+
+</div></li>
+            </div>
+          </div>
+                
+      </div>
+    </div>
+
+</header>
+
+
+
+      
+
+      <!-- <div id="cards" >
+        <div class="w3-card-4 w3-margin" style="width:50%;">
+          <div class="w3-display-container w3-text-white">
+              <img src="https://atts.w3cschool.cn/img_london.jpg" alt="Lights" style="width:100%">
+              <div class="w3-xlarge w3-display-bottomleft w3-padding">伦敦60°华氏度</div>
+          </div>
+          <div class="w3-display-container w3-text-white">
+            <img src="https://atts.w3cschool.cn/img_london.jpg" alt="Lights" style="width:100%">
+            <div class="w3-xlarge w3-display-bottomleft w3-padding">伦敦60°华氏度</div>
+          </div>
+        </div>
+      </div> -->
+            
+      <div id="content" class="outer">
+        
+        <br/><br/><br/><br/><br/><br/>
+        
+        
+          <section id="main" style="float:none;"><article id="post-JSP内置对象" style="width: 75%; float:left;" class="article article-type-post" itemscope itemprop="blogPost" >
+  
+    
+
+    <div id="articleInner" class="article-inner">
+      
+      
+        <header class="article-header">
+          
+  
+    <h1 class="thumb" class="article-title" itemprop="name">
+      JSP内置对象
+    </h1>
+  
+
+        </header>
+      
+      <div class="article-meta">
+        
+	<a href="/jgry-it/2022/09/18/JSP%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/" class="article-date">
+	  <time datetime="2022-09-18T04:13:49.000Z" itemprop="datePublished">2022-09-18</time>
+	</a>
+
+        
+    <a class="article-category-link" href="/jgry-it/categories/Java%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E2%85%A1/">Java程序设计Ⅱ</a>
+
+        
+	<a class="article-views">
+	<span id="busuanzi_container_page_pv">
+		阅读量:<span id="busuanzi_value_page_pv"></span>
+	</span>
+	</a>
+
+        
+
+      </div>
+      <div class="article-entry" itemprop="articleBody">
+        
+          <p><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JSP%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/JSP%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1.1240hwhts5ow.webp"></p>
+<h2 id="🚀1-request对象"><a href="#🚀1-request对象" class="headerlink" title="🚀1. request对象"></a>🚀1. request对象</h2><p>💬用户每访问一个页面，就会产生一个HTTP请求。这些请求中一般都包含了请求所需的参数值或者信息，如果将request对象看作是客户请求的一个实例，那么这个实例就包含了客户请求的所有数据。因此，可以通过request来获取客户端和服务端的信息，如IP地址、传递的参数名和参数值、应用系统名称、服务器主机名称等。</p>
+<p>⚡request对象的常用方法</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>方法说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><font color="red">getParameter()</font></td>
+<td>取得请求中指定的参数值，返回String类型，如果有必要，需要将取得的参数值转换为合适的类型。</td>
+</tr>
+<tr>
+<td>getParameterValues()</td>
+<td>将同名称的参数一次性地读入String类型的数组中。</td>
+</tr>
+<tr>
+<td>getParameterNames()</td>
+<td>获取参数名称，返回枚举类型。</td>
+</tr>
+<tr>
+<td>getMethod()</td>
+<td>获取客户提交信息的方式，即post或get</td>
+</tr>
+<tr>
+<td>getServeletPath()</td>
+<td>获取JSP页面文件的目录。</td>
+</tr>
+<tr>
+<td><font color="red">getHeader()</font></td>
+<td>获取HTTP头文件中的指定值，例如accept、user-agent、content-type、content-length等。</td>
+</tr>
+<tr>
+<td>getRemoteAddr()</td>
+<td>获取客户的IP地址。</td>
+</tr>
+<tr>
+<td>getServerName()</td>
+<td>获取服务器的名称。</td>
+</tr>
+<tr>
+<td>getServerPort()</td>
+<td>获取服务器的端口号。</td>
+</tr>
+<tr>
+<td>getContextPath()</td>
+<td>获取项目名称，如果项目为根目录，则得到空的字符串。</td>
+</tr>
+<tr>
+<td>getHeaders()</td>
+<td>获取表头信息，返回枚举类型。</td>
+</tr>
+</tbody></table>
+<p>⚡getParameter.jsp用于获取页面参数值，代码如下：<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JSP内置对象/J_1.1ce1hu5wzpy8.webp" style="margin:0;" /></p>
+<p>💬启动Tomcat服务器后，打开getParameter.jsp的页面后，在浏览器中的该页面的访问地址后添加<code>?name=张三&amp;city=Beijing</code>，按回车键后页面会显示”欢迎张三，您所在的城市是Beijing。”的文字。</p>
+<p>💬实际上，上述传递参数的方法在实际的开发中相比表单提交参数要较少使用，因为这种提交参数的方法完全将参数暴露出来，不利于隐私保护，所以我们一般采取表单提交的方式传递参数。</p>
+<p>💬在表单form中，有两个非常重要的属性:action和method属性action指明表单提交后的数据跳转到指定页面并处理参数。method有两个值，分别是get和post,通常指定为post,因为指定为get时，在表单中设定的参数和参数值将附加到页面地址的末尾以参数的形式提交，这样会暴露参数值，不安全；而指定为post并提交表单时，表单中的参数将被作为请求头中的信息发送，不会在目标地址中添加任何参数，这样就不会暴露出参数值，所有出于安全考虑，一般会选择post提交。</p>
+<p>⚡下面我们看一个post提交方式来获取网页请求参数的例子。<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JSP内置对象/J_2.5fh8lfka5q40.webp" style="margin:0;" /><br>这个例子中的getParameter.jsp和我们的第一个例子中的代码相同。</p>
+<p>⚡我们也可以利用request对象来获取请求的头部信息。请求头部信息时我们可以用<font color="red">getHeader(String name)</font>方法。代码如下：<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JSP内置对象/J_3.55ggsrxpc5o0.webp" style="margin:0;" /></p>
+<h2 id="🚀2-response对象"><a href="#🚀2-response对象" class="headerlink" title="🚀2. response对象"></a>🚀2. response对象</h2><p>💬当用户访问一个页面时，就会产生一个HTTP请求,服务器做出响应时调用的是response响应包。response响应包实现的是接口javax.servlet.http.HttpServletResponse。</p>
+<p>⚡response对象的常用方法</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>方法说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>addHeader(String name, String value)</td>
+<td>向页面中添加头和对应的值。</td>
+</tr>
+<tr>
+<td>addCookie(Cookie cookie)</td>
+<td>添加Cookie信息</td>
+</tr>
+<tr>
+<td>sendRedirect(String uri)</td>
+<td>实现页面重定向</td>
+</tr>
+<tr>
+<td>setStatus(int code)</td>
+<td>设定页面的响应状态代码</td>
+</tr>
+<tr>
+<td>setContentType(String type)</td>
+<td>设定页面的MIME类型和字符集</td>
+</tr>
+<tr>
+<td>setCharacterEncoding(String charset)</td>
+<td>设定页面响应的编码类型</td>
+</tr>
+<tr>
+<td>setHeader(String name,String value)</td>
+<td></td>
+</tr>
+</tbody></table>
+<br/>
+⚡我们利用response对象的方法设置HTML页面中存在于head标签之间的信息。
+<img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JSP内置对象/J_4.1c2mb5iy863k.webp" style="margin:0;" />
+在上面这段代码中，用setHeader和addHeader两个方法设置了meta头信息。而且实现了一个跳转页面的操作。
+<br/><br/>
+
+
+
+<p>⚡除了我们刚才在上面代码中使用的addHeader来设置跳转之外，也可以通过response的sendRedirect()方法设置页面重定向来实现跳转。<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JSP内置对象/J_5.3bwz1xo8rg20.webp" style="margin:0;" /></p>
+<h2 id="🚀3-session对象"><a href="#🚀3-session对象" class="headerlink" title="🚀3. session对象"></a>🚀3. session对象</h2><p>💬在Web开发中,session对象同样占据着及其重要的位置，它是一个非常重要的对象，可以用来判断是否为同一用户,还可以用来记录客户的连接信息等。HTTP协议是一种无状态的协议(不保存连接状态的协议)，每次用户请求在接收到服务器的响应后，连接就关闭了，服务器端与客户的连接被断开，因此，如果用户的浏览器还没关闭时又发起请求，那么网站就应该识别出该用户的情况。在这种情况下，session对象就起到了关键作用。</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>会话</td>
+<td>从用户打开浏览器连接到一个Web应用或者是某个界面，直至关闭浏览器这个过程称为一个会话。其实打开一个浏览器就意味着打开了一个会话对象。</td>
+</tr>
+<tr>
+<td>session对象生命周期</td>
+<td>从用户访问某个页面到关闭浏览器这段时间称为session对象的生命周期，也可以说从会话开始到结束这段时间为session对象的生命周期。</td>
+</tr>
+<tr>
+<td>session对象与Cookie对象</td>
+<td>session对象与Cookie对象是一一对应关系。JSP引擎会将创建好的session对象存放在对应的Cookie中。</td>
+</tr>
+</tbody></table>
+<p>⚡session对象的常用方法</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>void setAttribute(String name, Object value)</td>
+<td>将参数名和参数值存放在session对象中。</td>
+</tr>
+<tr>
+<td>Object getAttribute(String name)</td>
+<td>返回session中与指定参数绑定的对象，如果不存在就返回null。</td>
+</tr>
+<tr>
+<td>Enumeration getAttributeName()</td>
+<td>一个用户一个线程，从而保证多个用户单击同一页面时session对象的唯一性。</td>
+</tr>
+<tr>
+<td>String getId()</td>
+<td>获取session对象的ID值。</td>
+</tr>
+<tr>
+<td>void removeAttribute(String name)</td>
+<td>移除session中指定名称的参数。</td>
+</tr>
+<tr>
+<td>long getCreationTime()</td>
+<td>获取对象创建的时间，返回结果是long型的毫秒数。</td>
+</tr>
+<tr>
+<td>int getMaxInactiveInterval()</td>
+<td>获取session对象的有效时间。</td>
+</tr>
+<tr>
+<td>void setMaxInactiveInterval()</td>
+<td>设置session对象的有效时间。</td>
+</tr>
+<tr>
+<td>boolean isNew()</td>
+<td>用于判断是否为一个新的客户端。</td>
+</tr>
+<tr>
+<td>void invalidate()</td>
+<td>使session对象不合法，即失效。</td>
+</tr>
+</tbody></table>
+<h2 id="🚀4-application对象"><a href="#🚀4-application对象" class="headerlink" title="🚀4. application对象"></a>🚀4. application对象</h2><p>💬application对象实现的接口为javax.servlet.ServletContext,它的生命周期是从application对象创建到应用服务器关闭，也就是说当服务器关闭时application对象才消失。可以将它视为Web应用的全局变量,当服务器运行时有效，如果关闭服务器，其中保存的信息也就消失了。</p>
+<h2 id="🚀5-out对象"><a href="#🚀5-out对象" class="headerlink" title="🚀5. out对象"></a>🚀5. out对象</h2><h2 id="🚀6-page对象"><a href="#🚀6-page对象" class="headerlink" title="🚀6. page对象"></a>🚀6. page对象</h2><h2 id="🚀7-config对象"><a href="#🚀7-config对象" class="headerlink" title="🚀7. config对象"></a>🚀7. config对象</h2>
+        
+      </div>
+      <footer class="article-footer">
+        
+          <div id="donation_div"></div>
+
+
+<script src="/jgry-it/js/vdonate.js"></script>
+
+<script>
+var a = new Donate({
+  title: '', // 可选参数，打赏标题
+  btnText: 'Donate', // 可选参数，打赏按钮文字
+  el: document.getElementById('donation_div'),
+  wechatImage: '',
+  alipayImage: ''
+});
+</script>
+        
+        
+        <div>
+        <ul class="post-copyright">
+          <li class="post-copyright-author">
+          <strong>Post author:  </strong>嘉庚日本语言与文化学院</a>
+          </li>
+          <li class="post-copyright-link">
+          <strong>Post link:  </strong>
+          <a href="/jgry-it/2022/09/18/JSP内置对象/" target="_blank" title="JSP内置对象">https://jgry.gitee.io/jgry-it/2022/09/18/JSP内置对象/</a>
+          </li>
+          <li class="post-copyright-license">
+            <strong>Copyright Notice:   </strong>
+            All articles in this blog are licensed under <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
+            unless stating additionally.
+          </li>
+         
+        </ul>
+<div>
+
+        
+        
+          
+	<div id="comment">
+		<!-- 来必力City版安装代码 -->
+		<div id="lv-container" data-id="city" data-uid="MTAyMC8yOTQ4MS82MDQ5">
+		<script type="text/javascript">
+		   (function(d, s) {
+		       var j, e = d.getElementsByTagName(s)[0];
+
+		       if (typeof LivereTower === 'function') { return; }
+
+		       j = d.createElement(s);
+		       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+		       j.async = true;
+
+		       e.parentNode.insertBefore(j, e);
+		   })(document, 'script');
+		</script>
+		<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+		</div>
+		<!-- City版安装代码已完成 -->
+	</div>
+
+
+
+        
+        
+          
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/jgry-it/tags/Java/" rel="tag">Java</a></li></ul>
+
+        
+      </footer>
+    </div>
+    
+      
+<nav id="article-nav">
+  
+    <a href="/jgry-it/2022/09/20/%E6%97%A5%E6%9C%AC%E8%AA%9E%E3%82%92%E8%A9%B1%E3%81%9D%E3%81%86-1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          日本語を話そう-1
+        
+      </div>
+    </a>
+  
+  
+    <a href="/jgry-it/2022/09/16/%E6%97%A5%E8%AF%AD%E5%90%AC%E5%8A%9B%E7%BB%83%E4%B9%A0-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">日语听力练习-1</div>
+    </a>
+  
+</nav>
+
+    
+    
+  
+
+</article>
+
+<!-- Table of Contents -->
+
+  <aside id="toc-sidebar">
+    <div id="toc" class="toc-article">
+    <strong class="toc-title">Contents</strong>
+    
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%9A%801-request%E5%AF%B9%E8%B1%A1"><span class="nav-number">1.</span> <span class="nav-text">🚀1. request对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%9A%802-response%E5%AF%B9%E8%B1%A1"><span class="nav-number">2.</span> <span class="nav-text">🚀2. response对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%9A%803-session%E5%AF%B9%E8%B1%A1"><span class="nav-number">3.</span> <span class="nav-text">🚀3. session对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%9A%804-application%E5%AF%B9%E8%B1%A1"><span class="nav-number">4.</span> <span class="nav-text">🚀4. application对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%9A%805-out%E5%AF%B9%E8%B1%A1"><span class="nav-number">5.</span> <span class="nav-text">🚀5. out对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%9A%806-page%E5%AF%B9%E8%B1%A1"><span class="nav-number">6.</span> <span class="nav-text">🚀6. page对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%9A%807-config%E5%AF%B9%E8%B1%A1"><span class="nav-number">7.</span> <span class="nav-text">🚀7. config对象</span></a></li></ol>
+    
+    </div>
+  </aside>
+
+</section>
+        
+      </div>
+      
+      <footer id="footer">
+  
+
+        <div class="container">
+          <div class="row">
+            <p id="copyRightEn">
+              Copyright &copy; 2022
+                <!-- 
+            <img width="25px" height="28px" alt="jp_logo" src="../../../../css/images/jp_logo.jpg" />
+           -->
+                厦门大学嘉庚学院日本语言与文化学院 All Rights Reserved.
+            </p>
+
+            <span id="sitetime"></span>
+            <script language="javascript">
+              function siteTime(){
+                window.setTimeout("siteTime()", 1000);
+                var seconds = 1000;
+                var minutes = seconds * 60;
+                var hours = minutes * 60;
+                var days = hours * 24;
+                var years = days * 365;
+                var today = new Date();
+                var todayYear = today.getFullYear();
+                var todayMonth = today.getMonth()+1;
+                var todayDate = today.getDate();
+                var todayHour = today.getHours();
+                var todayMinute = today.getMinutes();
+                var todaySecond = today.getSeconds();
+                /* Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)
+                year - 作为date对象的年份，为4位年份值
+                month - 0-11之间的整数，做为date对象的月份
+                day - 1-31之间的整数，做为date对象的天数
+                hours - 0(午夜24点)-23之间的整数，做为date对象的小时数
+                minutes - 0-59之间的整数，做为date对象的分钟数
+                seconds - 0-59之间的整数，做为date对象的秒数
+                microseconds - 0-999之间的整数，做为date对象的毫秒数 */
+                var t1 = Date.UTC(2022,09,09,00,00,00); //北京时间2022-09-09 00:00:00
+                var t2 = Date.UTC(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);
+                var diff = t2-t1;
+                var diffYears = Math.floor(diff/years);
+                var diffDays = Math.floor((diff/days)-diffYears*365);
+                var diffHours = Math.floor((diff-(diffYears*365+diffDays)*days)/hours);
+                var diffMinutes = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours)/minutes);
+                var diffSeconds = Math.floor((diff-(diffYears*365+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);
+                document.getElementById("sitetime").innerHTML=" 本网站已运行 "+/*diffYears+" 年 "+*/diffDays+" 天 "+diffHours+" 小时 "+diffMinutes+" 分钟 "+diffSeconds+" 秒";
+              }/*因为建站时间还没有一年，就将之注释掉了。需要的可以取消*/
+              siteTime();
+            </script>
+            <img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb环境配置/logo.39646548aoc0.gif" alt="Windmill" class="windmill">
+            <p class="busuanzi_uv">
+              访客数 : <span id="busuanzi_value_site_uv"></span> |  
+              访问量 : <span id="busuanzi_value_site_pv"></span>
+            </p>
+            <!-- 
+    		<p class="busuanzi_uv">
+				访客数 : <span id="busuanzi_value_site_uv"></span> |  
+				访问量 : <span id="busuanzi_value_site_pv"></span>
+		    </p>
+  		    -->
+          </div>
+
+          <!-- <div class="img-list">
+      <div class="list-wrapper">
+        <ul>
+          <li style="opacity: 1; top: 0rem; left: 0rem; width: 1.3rem; z-index: 3;"><a href="news/qhxk/smqh.htm" onclick="_addDynClicks(&quot;wbimage&quot;, 1714694451, 61010)" target="_blank"><img alt="" src="https://source.unsplash.com/collection/954550/1920x1080"></a></li>         
+
+          <li style="opacity: 1; top: 0.125rem; left: 1.2rem; width: 1.1rem; z-index: 2;"><a href="news/qhxk/qhxytx.htm" onclick="_addDynClicks(&quot;wbimage&quot;, 1714694451, 61012)" target="_blank"><img alt="" src="https://source.unsplash.com/collection/954550/1920x1080"></a></li>         
+
+          <li style="opacity: 1; top: 0.3rem; left: 2rem; width: 0.8rem; z-index: 1;"><a href="news/qhxk/xqh.htm" onclick="_addDynClicks(&quot;wbimage&quot;, 1714694451, 61009)" target="_blank"><img alt="" src="https://source.unsplash.com/collection/954550/1920x1080"></a></li>         
+
+          <li style="opacity: 1; z-index: 0; top: 0.125rem; left: -1rem; width: 1.1rem;"><a href="new/image/2022qinghuagailan20220425.pdf" onclick="_addDynClicks(&quot;wbimage&quot;, 1714694451, 61011)" target="_blank"><img alt="" src="https://source.unsplash.com/collection/954550/1920x1080"></a></li>         
+        </ul>
+      </div>
+    </div> -->
+
+        </div>
+</footer>
+
+
+<!-- min height -->
+
+<script>
+  var wrapdiv = document.getElementById("wrap");
+  var contentdiv = document.getElementById("content");
+  var allheader = document.getElementById("allheader");
+
+  wrapdiv.style.minHeight = document.body.offsetHeight + "px";
+  if (allheader != null) {
+    contentdiv.style.minHeight = document.body.offsetHeight - allheader.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+  } else {
+    contentdiv.style.minHeight = document.body.offsetHeight - document.getElementById("footer").offsetHeight + "px";
+  }
+</script>
+
+    </div>
+    <!-- <nav id="mobile-nav">
+  
+    <a href="/jgry-it/" class="mobile-nav-link">首页</a>
+  
+    <a href="/jgry-it/archives" class="mobile-nav-link">归档</a>
+  
+    <a href="/jgry-it/categories" class="mobile-nav-link">分类</a>
+  
+    <a href="/jgry-it/tags" class="mobile-nav-link">标签</a>
+  
+    <a href="/jgry-it/about" class="mobile-nav-link">关于</a>
+  
+</nav> -->
+    
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  
+<link rel="stylesheet" href="/jgry-it/fancybox/jquery.fancybox.css">
+
+  
+<script src="/jgry-it/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/jgry-it/js/scripts.js"></script>
+
+
+
+
+
+  
+<script src="/jgry-it/js/dialog.js"></script>
+
+
+
+
+
+
+
+
+
+	<div style="display: none;">
+    <script src="https://s95.cnzz.com/z_stat.php?id=1260716016&web_id=1260716016" language="JavaScript"></script>
+  </div>
+
+
+
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
+	</script>
+
+
+
+
+
+
+  </div>
+
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="myModalLabel">设置</h2>
+      </div>
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+
+
+      <div class="modal-body">
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" onclick="javascript:setFontSize();" aria-expanded="true" aria-controls="collapseOne">
+              正文字号大小
+            </a>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+            您已调整页面字体大小
+          </div>
+        </div>
+      
+
+
+          <div style="margin:6px;">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" onclick="javascript:setBackground();" aria-expanded="true" aria-controls="collapseTwo">
+              夜间护眼模式
+            </a>
+        </div>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+            夜间模式已经开启，再次单击按钮即可关闭 
+          </div>
+        </div>
+
+        <div>
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="true" aria-controls="collapseThree">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;关 于&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+        </div>
+         <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+            嘉日IT
+          </div>
+          <div class="panel-body">
+            Copyright © 2022 嘉庚日本语言与文化学院 All Rights Reserved.
+          </div>
+        </div>
+      </div>
+
+
+      <hr style="margin-top:0px; margin-bottom:0px; width:80%; border-top: 1px solid #000;">
+      <hr style="margin-top:2px; margin-bottom:0px; width:80%; border-top: 3px solid #000;">
+      <div class="modal-footer">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <a id="rocket" href="#top" class=""></a>
+  <script type="text/javascript" src="/jgry-it/js/totop.js?v=1.0.0" async=""></script>
+  <script type="text/javascript" src="/jgry-it/js/home.js" async=""></script>
+  
+    <a id="menu-switch"><i class="fa fa-bars fa-lg"></i></a>
+  
+</body>
+</html>

@@ -1,0 +1,525 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>JSP内置对象</title>
+    <url>/jgry-it/2022/09/18/JSP%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/</url>
+    <content><![CDATA[<p><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JSP%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1/JSP%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1.1240hwhts5ow.webp"></p>
+<h2 id="🚀1-request对象"><a href="#🚀1-request对象" class="headerlink" title="🚀1. request对象"></a>🚀1. request对象</h2><p>💬用户每访问一个页面，就会产生一个HTTP请求。这些请求中一般都包含了请求所需的参数值或者信息，如果将request对象看作是客户请求的一个实例，那么这个实例就包含了客户请求的所有数据。因此，可以通过request来获取客户端和服务端的信息，如IP地址、传递的参数名和参数值、应用系统名称、服务器主机名称等。</p>
+<p>⚡request对象的常用方法</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>方法说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><font color="red">getParameter()</font></td>
+<td>取得请求中指定的参数值，返回String类型，如果有必要，需要将取得的参数值转换为合适的类型。</td>
+</tr>
+<tr>
+<td>getParameterValues()</td>
+<td>将同名称的参数一次性地读入String类型的数组中。</td>
+</tr>
+<tr>
+<td>getParameterNames()</td>
+<td>获取参数名称，返回枚举类型。</td>
+</tr>
+<tr>
+<td>getMethod()</td>
+<td>获取客户提交信息的方式，即post或get</td>
+</tr>
+<tr>
+<td>getServeletPath()</td>
+<td>获取JSP页面文件的目录。</td>
+</tr>
+<tr>
+<td><font color="red">getHeader()</font></td>
+<td>获取HTTP头文件中的指定值，例如accept、user-agent、content-type、content-length等。</td>
+</tr>
+<tr>
+<td>getRemoteAddr()</td>
+<td>获取客户的IP地址。</td>
+</tr>
+<tr>
+<td>getServerName()</td>
+<td>获取服务器的名称。</td>
+</tr>
+<tr>
+<td>getServerPort()</td>
+<td>获取服务器的端口号。</td>
+</tr>
+<tr>
+<td>getContextPath()</td>
+<td>获取项目名称，如果项目为根目录，则得到空的字符串。</td>
+</tr>
+<tr>
+<td>getHeaders()</td>
+<td>获取表头信息，返回枚举类型。</td>
+</tr>
+</tbody></table>
+<p>⚡getParameter.jsp用于获取页面参数值，代码如下：<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JSP内置对象/J_1.1ce1hu5wzpy8.webp" style="margin:0;" /></p>
+<p>💬启动Tomcat服务器后，打开getParameter.jsp的页面后，在浏览器中的该页面的访问地址后添加<code>?name=张三&amp;city=Beijing</code>，按回车键后页面会显示”欢迎张三，您所在的城市是Beijing。”的文字。</p>
+<p>💬实际上，上述传递参数的方法在实际的开发中相比表单提交参数要较少使用，因为这种提交参数的方法完全将参数暴露出来，不利于隐私保护，所以我们一般采取表单提交的方式传递参数。</p>
+<p>💬在表单form中，有两个非常重要的属性:action和method属性action指明表单提交后的数据跳转到指定页面并处理参数。method有两个值，分别是get和post,通常指定为post,因为指定为get时，在表单中设定的参数和参数值将附加到页面地址的末尾以参数的形式提交，这样会暴露参数值，不安全；而指定为post并提交表单时，表单中的参数将被作为请求头中的信息发送，不会在目标地址中添加任何参数，这样就不会暴露出参数值，所有出于安全考虑，一般会选择post提交。</p>
+<p>⚡下面我们看一个post提交方式来获取网页请求参数的例子。<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JSP内置对象/J_2.5fh8lfka5q40.webp" style="margin:0;" /><br>这个例子中的getParameter.jsp和我们的第一个例子中的代码相同。</p>
+<p>⚡我们也可以利用request对象来获取请求的头部信息。请求头部信息时我们可以用<font color="red">getHeader(String name)</font>方法。代码如下：<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JSP内置对象/J_3.55ggsrxpc5o0.webp" style="margin:0;" /></p>
+<h2 id="🚀2-response对象"><a href="#🚀2-response对象" class="headerlink" title="🚀2. response对象"></a>🚀2. response对象</h2><p>💬当用户访问一个页面时，就会产生一个HTTP请求,服务器做出响应时调用的是response响应包。response响应包实现的是接口javax.servlet.http.HttpServletResponse。</p>
+<p>⚡response对象的常用方法</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>方法说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>addHeader(String name, String value)</td>
+<td>向页面中添加头和对应的值。</td>
+</tr>
+<tr>
+<td>addCookie(Cookie cookie)</td>
+<td>添加Cookie信息</td>
+</tr>
+<tr>
+<td>sendRedirect(String uri)</td>
+<td>实现页面重定向</td>
+</tr>
+<tr>
+<td>setStatus(int code)</td>
+<td>设定页面的响应状态代码</td>
+</tr>
+<tr>
+<td>setContentType(String type)</td>
+<td>设定页面的MIME类型和字符集</td>
+</tr>
+<tr>
+<td>setCharacterEncoding(String charset)</td>
+<td>设定页面响应的编码类型</td>
+</tr>
+<tr>
+<td>setHeader(String name,String value)</td>
+<td></td>
+</tr>
+</tbody></table>
+<br/>
+⚡我们利用response对象的方法设置HTML页面中存在于head标签之间的信息。
+<img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JSP内置对象/J_4.1c2mb5iy863k.webp" style="margin:0;" />
+在上面这段代码中，用setHeader和addHeader两个方法设置了meta头信息。而且实现了一个跳转页面的操作。
+<br/><br/>
+
+
+
+<p>⚡除了我们刚才在上面代码中使用的addHeader来设置跳转之外，也可以通过response的sendRedirect()方法设置页面重定向来实现跳转。<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JSP内置对象/J_5.3bwz1xo8rg20.webp" style="margin:0;" /></p>
+<h2 id="🚀3-session对象"><a href="#🚀3-session对象" class="headerlink" title="🚀3. session对象"></a>🚀3. session对象</h2><p>💬在Web开发中,session对象同样占据着及其重要的位置，它是一个非常重要的对象，可以用来判断是否为同一用户,还可以用来记录客户的连接信息等。HTTP协议是一种无状态的协议(不保存连接状态的协议)，每次用户请求在接收到服务器的响应后，连接就关闭了，服务器端与客户的连接被断开，因此，如果用户的浏览器还没关闭时又发起请求，那么网站就应该识别出该用户的情况。在这种情况下，session对象就起到了关键作用。</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>会话</td>
+<td>从用户打开浏览器连接到一个Web应用或者是某个界面，直至关闭浏览器这个过程称为一个会话。其实打开一个浏览器就意味着打开了一个会话对象。</td>
+</tr>
+<tr>
+<td>session对象生命周期</td>
+<td>从用户访问某个页面到关闭浏览器这段时间称为session对象的生命周期，也可以说从会话开始到结束这段时间为session对象的生命周期。</td>
+</tr>
+<tr>
+<td>session对象与Cookie对象</td>
+<td>session对象与Cookie对象是一一对应关系。JSP引擎会将创建好的session对象存放在对应的Cookie中。</td>
+</tr>
+</tbody></table>
+<p>⚡session对象的常用方法</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>void setAttribute(String name, Object value)</td>
+<td>将参数名和参数值存放在session对象中。</td>
+</tr>
+<tr>
+<td>Object getAttribute(String name)</td>
+<td>返回session中与指定参数绑定的对象，如果不存在就返回null。</td>
+</tr>
+<tr>
+<td>Enumeration getAttributeName()</td>
+<td>一个用户一个线程，从而保证多个用户单击同一页面时session对象的唯一性。</td>
+</tr>
+<tr>
+<td>String getId()</td>
+<td>获取session对象的ID值。</td>
+</tr>
+<tr>
+<td>void removeAttribute(String name)</td>
+<td>移除session中指定名称的参数。</td>
+</tr>
+<tr>
+<td>long getCreationTime()</td>
+<td>获取对象创建的时间，返回结果是long型的毫秒数。</td>
+</tr>
+<tr>
+<td>int getMaxInactiveInterval()</td>
+<td>获取session对象的有效时间。</td>
+</tr>
+<tr>
+<td>void setMaxInactiveInterval()</td>
+<td>设置session对象的有效时间。</td>
+</tr>
+<tr>
+<td>boolean isNew()</td>
+<td>用于判断是否为一个新的客户端。</td>
+</tr>
+<tr>
+<td>void invalidate()</td>
+<td>使session对象不合法，即失效。</td>
+</tr>
+</tbody></table>
+<h2 id="🚀4-application对象"><a href="#🚀4-application对象" class="headerlink" title="🚀4. application对象"></a>🚀4. application对象</h2><p>💬application对象实现的接口为javax.servlet.ServletContext,它的生命周期是从application对象创建到应用服务器关闭，也就是说当服务器关闭时application对象才消失。可以将它视为Web应用的全局变量,当服务器运行时有效，如果关闭服务器，其中保存的信息也就消失了。</p>
+<h2 id="🚀5-out对象"><a href="#🚀5-out对象" class="headerlink" title="🚀5. out对象"></a>🚀5. out对象</h2><h2 id="🚀6-page对象"><a href="#🚀6-page对象" class="headerlink" title="🚀6. page对象"></a>🚀6. page对象</h2><h2 id="🚀7-config对象"><a href="#🚀7-config对象" class="headerlink" title="🚀7. config对象"></a>🚀7. config对象</h2>]]></content>
+      <categories>
+        <category>Java程序设计Ⅱ</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Gitee使用教程</title>
+    <url>/jgry-it/2022/09/09/Gitee%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</url>
+    <content><![CDATA[<p><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/Gittee%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/web_developer.v8dkdnm60kg.webp"></p>
+<h2 id="1-Gitee是什么？"><a href="#1-Gitee是什么？" class="headerlink" title="1.Gitee是什么？"></a>1.Gitee是什么？</h2><p>Gitee是开源中国（OSChina）推出的基于Git的代码托管服务。</p>
+<p>Gitee（码云）是开源中国社区推出的代码托管协作开发平台，支持Git和SVN，提供免费的私有仓库托管。Gitee专为开发者提供稳定、高效、安全的云端软件开发协作平台，无论是个人、团队、或是企业，都能够实现代码托管、项目管理、协作开发。</p>
+<p>Gitee目前已经成为国内最大的代码托管平台，致力于为国内开发者提供优质稳定的托管服务，与GitHub类似区别在于码云国内，GitHub国外。</p>
+<h2 id="2-为什么使用Git"><a href="#2-为什么使用Git" class="headerlink" title="2.为什么使用Git?"></a>2.为什么使用Git?</h2><p>在开发项目的时候，我们可能会经常修改代码，但是有时候会遇到想查看某一时间的代码的情况。如果没有版本控制器，你可能需要不断地定时备份代码，但这样显然是很麻烦的，而且备份也不一定好用。比如某个时间点并没有修改代码，那么备份就重复了；再比如虽然备份了代码，但你并不知道两个版本有什么区别。</p>
+<p>为了解决上面的一些问题，一些工程师便尝试开发代码版本控制器系统。每次当你修改完代码想进行备份时，只需要输入简单的命令，版本控制系统便会帮你完成备份操作。最为常见的版本控制系统是分布式版本控制系统和中央版本控制系统。</p>
+<h3 id="中央版本控制系统"><a href="#中央版本控制系统" class="headerlink" title="中央版本控制系统"></a>中央版本控制系统</h3><p>中央版本控制系统必须存在两个端，服务端和客户端，当进行代码备份时，客户端会向服务端发出请求，并将此次修改的内容发送到服务器当中去；服务端收到请求后，会将代码存储在服务器当中；同样当客户端想查看某一个版本的修改内容或者想恢复到某一个版本之时，客户端也会发送请求到服务端，服务在端接收到请求之后会做出相应的处理并返回给客户端。</p>
+<h3 id="分布式版本控制系统"><a href="#分布式版本控制系统" class="headerlink" title="分布式版本控制系统"></a>分布式版本控制系统</h3><p>分布式版本控制器，主要是将备份的代码以及记录完全独立在本地存储，比如说上面提到，当你想将代码恢复到某一个版本的时候，本地版本控制器，不需要依赖网络便可以完成此操作，因为本地版本控制器拥有完整独立的控制系统。</p>
+<h2 id="3-Gitee的注册登录"><a href="#3-Gitee的注册登录" class="headerlink" title="3.Gitee的注册登录"></a>3.Gitee的注册登录</h2><p>打开<a href="https://gitee.com/">Gitee官网</a>注册登录即可。</p>
+<p><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/Gittee%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/gitee-regist.1k02emg21czk.webp"></p>
+<h2 id="4-下载Git"><a href="#4-下载Git" class="headerlink" title="4.下载Git"></a>4.下载Git</h2><p>因为Gitee是基于Git的代码管理库，所以如果想利用Gitee管理代码，Git的安装必不可少。</p>
+<p>打开<a href="https://git-scm.com/">Git官网</a>下载Git,下载红框里的Windows最新版本。</p>
+<img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/Gittee使用教程/git-download.5aucbju78u80.webp" style="zoom:50%;" />
+
+
+
+
+<br/>
+
+<h2 id="5-基本命令汇总："><a href="#5-基本命令汇总：" class="headerlink" title="5.基本命令汇总："></a>5.基本命令汇总：</h2><p>Git 的工作就是创建和保存你项目的快照及与之后的快照进行对比。它有四个位置：</p>
+<p><strong>workspace：工作区</strong><br><strong>staging area：暂存区&#x2F;缓存区</strong><br><strong>local repository：版本库或本地仓库</strong><br><strong>remote repository：远程仓库</strong></p>
+<table>
+<thead>
+<tr>
+<th>Git命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>git init</td>
+<td>初始化仓库</td>
+</tr>
+<tr>
+<td>git clone</td>
+<td>拷贝一份远程仓库，也就是下载一个项目</td>
+</tr>
+<tr>
+<td>git add</td>
+<td>添加文件到暂存区</td>
+</tr>
+<tr>
+<td>git status</td>
+<td>查看仓库当前的状态，显示有变更的文件</td>
+</tr>
+<tr>
+<td>git diff</td>
+<td>比较文件的不同，即暂存区和工作区的差异</td>
+</tr>
+<tr>
+<td>git commit</td>
+<td>提交暂存区到本地仓库</td>
+</tr>
+<tr>
+<td>git reset</td>
+<td>回退版本</td>
+</tr>
+<tr>
+<td>git rm</td>
+<td>删除工作区文件</td>
+</tr>
+<tr>
+<td>git mv</td>
+<td>移动或重命名工作区文件</td>
+</tr>
+<tr>
+<td>git log</td>
+<td>查看历史提交记录</td>
+</tr>
+<tr>
+<td>git blame <file></td>
+<td>以列表形式查看指定文件的历史修改记录</td>
+</tr>
+<tr>
+<td>git remote</td>
+<td>远程仓库操作</td>
+</tr>
+<tr>
+<td>git fetch</td>
+<td>从远程获取代码库</td>
+</tr>
+<tr>
+<td>git pull</td>
+<td>下载远程代码并合并</td>
+</tr>
+<tr>
+<td>git push</td>
+<td>上传远程代码并合并</td>
+</tr>
+<tr>
+<td>git branch -a</td>
+<td>查看所有分支</td>
+</tr>
+<tr>
+<td>git checkout 分支名称</td>
+<td>切换到某一分支</td>
+</tr>
+<tr>
+<td>git merge 原分支 目标分支</td>
+<td>合并分支</td>
+</tr>
+<tr>
+<td>git status</td>
+<td>查看本地分支文件信息，确保更新时不产生冲突</td>
+</tr>
+<tr>
+<td>git branch</td>
+<td>查看当前分支情况</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>使用教程</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+        <tag>开发工具</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JSP基础语法</title>
+    <url>/jgry-it/2022/09/13/JSP%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/</url>
+    <content><![CDATA[<p><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JSP%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/JSP%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95.3k2aq6k0qnu0.webp"></p>
+<h2 id="🚀1-JSP的注释"><a href="#🚀1-JSP的注释" class="headerlink" title="🚀1. JSP的注释"></a>🚀1. JSP的注释</h2><br/>
+
+<ul>
+<li>第一种语法形式：HTML注释</li>
+</ul>
+<p>⚡<b><code>&lt;!-- 注释的内容 --&gt;</code></b></p>
+<img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JSP基础语法/images2-(1).1msi06snd734.webp" style="margin:0;" />
+
+<p><br/><br/></p>
+<ul>
+<li>第二种语法形式：JSP注释</li>
+</ul>
+<p>⚡<b><code>&lt;%-- 注释的内容 --%&gt;</code></b></p>
+<img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JSP基础语法/images3.5c0vmth9zxg0.webp" style="margin:0;" />
+
+<p><br/><br/></p>
+<ul>
+<li>第三种语法形式：Java注释</li>
+</ul>
+<p>⚡<b><code>// 单行注释 </code></b><br>⚡<b><code>/* 多行注释 */</code></b></p>
+<img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JSP基础语法/images4.7ihwqnw9jxo0.webp" style="margin:0;" />
+
+<p><br/><br/></p>
+<h2 id="🚀2-JSP的声明"><a href="#🚀2-JSP的声明" class="headerlink" title="🚀2. JSP的声明"></a>🚀2. JSP的声明</h2><ul>
+<li>语法形式</li>
+</ul>
+<p><b><code>&lt;%! 全局变量定义/方法定义/类 %&gt;</code></b></p>
+<p>1&gt; 定义全局变量</p>
+<img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JSP基础语法/images5.5f7e4hqnook0.webp" style="margin:0;" />
+
+<p>2&gt; 定义方法</p>
+<img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JSP基础语法/images6.5ekudy9j0380.webp" style="margin:0;" />
+
+<p>3&gt; 定义类</p>
+<img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JSP基础语法/images7.3az04pdwauo0.webp" style="margin:0;" />
+
+
+<p><b><code>&lt;% 局部变量定义 %&gt;</code></b></p>
+<img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JSP基础语法/images8.2dry214fsj8k.webp" style="margin:0;" />
+
+<br/>
+
+<p>🔥<font color="red">&lt;%! %&gt;和&lt;% %&gt;定义变量的区别</font></p>
+<p>🔥<font color="red">有！声明的是全局变量，没！声明的是局部变量。</font></p>
+<h2 id="🚀3-JSP的表达式"><a href="#🚀3-JSP的表达式" class="headerlink" title="🚀3. JSP的表达式"></a>🚀3. JSP的表达式</h2><ul>
+<li>语法形式</li>
+</ul>
+<p>⚡<b><code>&lt;%=变量或者表达式%&gt;</code></b></p>
+<p>💬原来用out.print();输出的部分可以由JSP的表达式进行输出。</p>
+<img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JSP基础语法/images9.48fshv9hep0.webp" style="margin:0;" />
+
+<br/>
+
+<h2 id="🚀4-JSP的指令"><a href="#🚀4-JSP的指令" class="headerlink" title="🚀4. JSP的指令"></a>🚀4. JSP的指令</h2><p>1&gt; Page指令</p>
+<ul>
+<li>语法形式</li>
+</ul>
+<p>⚡<b><code>&lt;%@ page 属性1= &quot;值2&quot; 属性2= &quot;值2&quot; ….%&gt;</code></b></p>
+<p>💬在所有的属性中除import可以声明多个外，其他的属性都只能出现一次。</p>
+<p>💬page指令的属性可以写在同一行，也可以分行写。</p>
+<img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JSP基础语法/images10.9ylrmyca21.webp" style="margin:0;" />
+
+
+<p>2&gt; include指令(静态导入)</p>
+<ul>
+<li>语法形式</li>
+</ul>
+<p>⚡<b><code>&lt;%@ include file=&quot;URL&quot; %&gt;</code></b></p>
+<p>💬include指令可以导入JSP文件，也可以导入HTML文件。</p>
+<p>include.jsp<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JSP基础语法/images11.7dmu98ovbsk0.webp" style="margin:0;" /></p>
+<p>header.html<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JSP基础语法/images12.ens7c41hr14.webp" style="margin:0;" /></p>
+<p>footer.jsp<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JSP基础语法/images13.654qdiljd540.webp" style="margin:0;" /></p>
+<p><a href="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JSP%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/jgxy2.3a5uwc66xwo0.webp">jgxy2.jpg</a></p>
+<p><a href="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JSP%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/logo.3ap97dof7xc0.webp">logo.jpg</a></p>
+<p>💬以上，三个文件和两张照片组成一个完整的Include导入的例子。大家可以编写三个这样的文件和下载两张照片放在同一个文件夹里，然后把图片名修改一下，jgxy2.3a5uwc66xwo0.webp修改为jgxy2.jpg,logo.3ap97dof7xc0.webp修改为logo.jpg。</p>
+<h2 id="🚀5-JSP的动作"><a href="#🚀5-JSP的动作" class="headerlink" title="🚀5. JSP的动作"></a>🚀5. JSP的动作</h2><p>1&gt; <a href="jsp:include">jsp:include</a>动作(动态导入)</p>
+<ul>
+<li>语法形式</li>
+</ul>
+<p>⚡<b><code>&lt;jsp:include page=&quot;URL&quot; flush=&quot;true&quot; /&gt;</code></b></p>
+<p>💬flush属性用于指定输出缓存是否转移到被导入文件中。如果指定为true，则包含在导入文件中；如果指定为false,则包含在源文件中。</p>
+<p>我们可以把4.JSP的指令中的include指令改成JSP的include动作，看一下能否正常显示。</p>
+<p>include_action.jsp<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JSP基础语法/images14.i2v30u67f2o.webp" style="margin:0;" /></p>
+<p>2&gt; <a href="jsp:param">jsp:param</a>动作</p>
+<ul>
+<li>语法形式</li>
+</ul>
+<p>⚡<b><code>&lt;jsp:param name=&quot;参数名称&quot; value=&quot;参数值&quot; /&gt;</code></b></p>
+<p>💬作用：用来传递参数信息，她经常与其他动作一起使用，例如与<a href="jsp:forward">jsp:forward</a>、<a href="jsp:include">jsp:include</a>等结合使用，用于传递主页面的参数到目标页面。<br>💬传递过来的参数用<font color="red">request.getParameter()</font>来接收。且接收的返回值类型一定是String类型。</p>
+<p>param_action.jsp<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JSP基础语法/images15.jr7zjyn1xr4.webp" style="margin:0;" /></p>
+<p>我们修改一下原来的footer.jsp文件，添加如下图红框里的用request.getParameter()接收值得部分和把接收到的值显示出来的部分。</p>
+<p>footer.jsp<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JSP基础语法/images16.6vlynmmpin80.webp" style="margin:0;" /></p>
+<p>3&gt; <a href="jsp:forward">jsp:forward</a>动作</p>
+<ul>
+<li>语法形式</li>
+</ul>
+<p>⚡<b><code>&lt;jsp:forward page=&quot;URL&quot; /&gt;</code></b></p>
+<p>💬作用：转发请求到另外一个页面中，在请求过程中会连同请求的参数数据一起被转发到目标页面中，目标页面通过request.getParameter方法获得参数值进行进一步处理。</p>
+<p>🔥<font color="red">forward动作的跳转属于服务器端跳转，跳转后的页面的url还是原来页面的，没有发生改变。</font><br>🔥<font color="red">forward动作中的url页面只能是该Web应用中的文件，而不能是该Web应用之外的文件。</font></p>
+<p>forward_action.jsp<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JSP基础语法/images17.wzamrbs0zi8.webp" style="margin:0;" /></p>
+<p>Page1.jsp<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JSP基础语法/images18.4bvha1qlk860.webp" style="margin:0;" /></p>
+<p>Page2.jsp<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JSP基础语法/images19.my879vzkh5c.webp" style="margin:0;" /></p>
+<p>以上3个文件，编写完后放在同一个文件夹下。</p>
+]]></content>
+      <categories>
+        <category>Java程序设计Ⅱ</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MongoDB的安装与运用</title>
+    <url>/jgry-it/2022/09/22/MongoDB%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E8%BF%90%E7%94%A8/</url>
+    <content><![CDATA[<p><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/MongoDB%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E5%9F%BA%E6%9C%AC%E8%BF%90%E7%94%A8/MongoDB_1.73ithhh718g0.webp"></p>
+<h2 id="🚀1-MongoDB简介"><a href="#🚀1-MongoDB简介" class="headerlink" title="🚀1. MongoDB简介"></a>🚀1. MongoDB简介</h2><p>MongoDB 是一个基于分布式文件存储的数据库。由 C++ 语言编写。旨在为 WEB 应用提供可扩展的高性能数据存储解决方案。MongoDB 是一个介于关系数据库和非关系数据库之间的产品，是非关系数据库当中功能最丰富，最像关系数据库的。它将数据存储为一个文档，数据结构由键值(key&#x3D;&gt;value)对组成。MongoDB 文档类似于 JSON 对象。字段值可以包含其他文档，数组及文档数组。</p>
+]]></content>
+      <categories>
+        <category>软件工程实务与实验</category>
+      </categories>
+      <tags>
+        <tag>MongoDB</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JavaWeb环境配置</title>
+    <url>/jgry-it/2022/09/12/JavaWeb%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</url>
+    <content><![CDATA[<p><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/JavaWeb_post1.6hhe9c3vid80.webp"></p>
+<h2 id="1-配置JavaHome环境变量"><a href="#1-配置JavaHome环境变量" class="headerlink" title="1.配置JavaHome环境变量"></a>1.配置JavaHome环境变量</h2><p>配置JavaHome环境变量前，请先确认电脑是否已经安装JDK。同时按Window键+R键，打开运行窗口，输入cmd后，按回车键，打开命令提示符窗口。<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb环境配置/images4.4bhhxint2li0.webp" style="margin:0;" /></p>
+<p><br/><br/><br>输入<b><code>java --version</code></b>命令，如果出现Java版本号，说明JDK已经安装，如出现其他信息说明JDK未安装或有其他问题。<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb环境配置/images5.4xj7shfln4g0.webp" style="margin:0;" /></p>
+<p><br/><br/><br>右击此电脑。<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb环境配置/images1.5sz25yey3xg0.webp" style="width:100%;height:100%;" /></p>
+<br/>
+打开属性。
+<img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb环境配置/images2.3j3mzotw0vi0.webp" style="width:100%;height:100%;" />
+
+<p><br/><br/><br>点击环境变量。<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb环境配置/images3.5bwxufys8200.webp" style="width:100%;height:100%;" /></p>
+<p><br/><br/><br>新建JAVA_HOME系统变量，变量值填入自己电脑的JDK所在的路径。填完之后，点击确定。<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb环境配置/images4.2a5hbn2plvi8.webp" style="margin:0;" /></p>
+<p><br/><br/><br>选择Path，点击编辑按钮。<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb环境配置/images4.6fj6vvbsi1w0.webp" style="margin:0;"/></p>
+<p><br/><br/><br>进入编辑环境变量窗口，点击新建按钮。<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb环境配置/images4.qujelff996o.webp" style="margin:0;" /></p>
+<p><br/><br/><br>配置JAVA_HOME环境变量。然后点击各个窗口的确定键。<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb环境配置/images4.30u3ggcls460.webp" style="margin:0;" /></p>
+<h2 id="2-配置Tomcat服务器"><a href="#2-配置Tomcat服务器" class="headerlink" title="2.配置Tomcat服务器"></a>2.配置Tomcat服务器</h2><p>解压Tomcat压缩包。<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb环境配置/images4.5xeyrjf7e1w0.webp" style="margin:0;" /></p>
+<p><br/><br/><br>打开解压后的文件夹。<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb环境配置/images4.2eyhd9nar8nw.webp" style="margin:0;" /></p>
+<p><br/><br/><br>打开Tomcat文件夹下的bin目录，双击startup.bat。<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb环境配置/images4.5pk9x3i1tzo0.webp" style="margin:0;" /></p>
+<p><br/><br/><br>如果出现如下图的黑色窗口，说明JAVA_HOME环境配置没有问题，Tomcat能正常启动。如果黑色窗口发生闪退打不开的现象时，说明JAVA_HOME或其他地方的配置存在问题，需要进行排查。<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb环境配置/images4.1iddrh8erg1s.webp" style="margin:0;" /></p>
+<p><br/><br/><br>上一步中黑色窗口显示的文字的是乱码文字，可以修改logging.properties，将UTF-8修改为GBK，修改完后，进行保存。<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb环境配置/images4.1j32xioirjxc.webp" style="margin:0;" /></p>
+<p><br/><br/><br>重启Tomcat服务器，查看此时黑色窗口的乱码文字是否已变成正常显示的汉字。<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb环境配置/images4.1thu2payskxs.webp" style="margin:0;" /></p>
+<p><br/><br/><br>回到Tomcat文件下，在webapps文件夹下，新建JavaWeb文件夹。<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb环境配置/images5.3qnlgpo3s760.webp" style="margin:0;" /></p>
+<p><br/><br/><br>然后再打开ROOT文件夹，复制WEB-INF文件夹和index.jsp到上一步中新建的JavaWeb文件夹里。<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb环境配置/images5.54qdgaigc800.webp" style="margin:0;" /></p>
+<p><br/><br/><br>这一步是配置虚拟目录。打开Tomcat的conf文件夹，找到server.xml文件并打开，然后将<b><code>&lt;Context path=&quot;projects&quot; docBase=&quot;&quot; /&gt;</code></b>复制粘贴到原来148行的</Host>的前面一行里并保存。<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb环境配置/images5.4xg9g7c4m4w0.webp" style="margin:0;" /></p>
+<p><br/><br/><br>返回Tomcat文件夹，打开刚才新建的JavaWeb文件夹，复制其路径。<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb环境配置/images5.3se4cnecfme0.webp" style="margin:0;" /></p>
+<p><br/><br/><br>将复制的路径粘贴到server.xml文件的第148行里的docBase后的双引号里面。<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb环境配置/images5.49bm2itu1m20.webp" style="margin:0;" /></p>
+<p><br/><br/><br>为了更好的使用项目文件里的文件，我们可以打开listings的设置，将服务器上的文件列表显示到页面上。打开conf文件夹下面的web.xml文件，然后找到127行，将<b><code>false</code></b>改成<b><code>true</code></b>并保存。<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb环境配置/images5.2ydveh6h2740.webp" style="margin:0;" /></p>
+<p><br/><br/><br>还是在web.xml文件中，然后找到4737行，将<b><code>&lt;welcome-file-list&gt;</code></b>里的代码全部注释掉(同时按Window键+&#x2F;键进行注释)并保存。<br><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/JavaWeb环境配置/images5.3rbbqkdwubq0.webp" style="margin:0;" /></p>
+<iframe style='width: 710px;height: 400px' src="//player.bilibili.com/player.html?aid=27643533&bvid=BV11s411P7pg&cid=47703725&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+]]></content>
+      <categories>
+        <category>Java程序设计Ⅱ</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ようこそ!嘉日IT！</title>
+    <url>/jgry-it/2022/09/23/hello-world/</url>
+    <content><![CDATA[<p>嘉日IT(<a href="https://jgry.gitee.io/jgry-it/)%E3%81%B8%E3%82%88%E3%81%86%E3%81%93%E3%81%9D">https://jgry.gitee.io/jgry-it/)へようこそ</a>! これは私たちの最初の文章です。皆さんが先生と一緒にIT学習の旅に出て、IT学習の中で喜びを探し、知識と幸せを収穫してほしいです。</p>
+<p>Welcome to 嘉日IT(<a href="https://jgry.gitee.io/jgry-it/">https://jgry.gitee.io/jgry-it/</a>)! This is our first article, hope that students and teachers embark on the IT learning trip, let us find happiness in IT learning, harvest knowledge and happiness.</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>日本語を話そう-1</title>
+    <url>/jgry-it/2022/09/20/%E6%97%A5%E6%9C%AC%E8%AA%9E%E3%82%92%E8%A9%B1%E3%81%9D%E3%81%86-1/</url>
+    <content><![CDATA[<p><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/%E6%97%A5%E6%9C%AC%E8%AA%9E%E3%82%92%E8%A9%B1%E3%81%9D%E3%81%86/K_1.2fpusobkad1c.webp"></p>
+<p><br/><br/></p>
+<iframe style='width: 710px;height: 400px' src="//player.bilibili.com/player.html?aid=752723292&bvid=BV1gk4y1R7Af&cid=174566929&page=1&high_quality=1&danmaku=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+<p>影子跟读法就是以最小的时间差跟读音频，直到能够跟音频完全同步，同时逐步理解全部内容，既能练习口语又能练习听力。刚开始肯定会跟不上，但是需要坚持！希望大家日语口语、听力都能变得棒棒的！！</p>
+<blockquote>
+<p>练习方法：<br>边听边跟读，注意力放在语音语调上，也可以把自己当成刚学话的小孩儿，只发声音模仿听到的话。<br>看着日文版本反复的影子跟读。<br>多反复几遍后认认真真的看看文本，把不会的查查字典。<br>最后自己差不多能跟上而且理解后自己进行复述，口头复述完后，再写下来和文本对照。一般每天练习20min，前10min影子跟读，后10min自己输出检测。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>日语学习</category>
+      </categories>
+      <tags>
+        <tag>日本語口语</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>日语听力练习-1</title>
+    <url>/jgry-it/2022/09/16/%E6%97%A5%E8%AF%AD%E5%90%AC%E5%8A%9B%E7%BB%83%E4%B9%A0-1/</url>
+    <content><![CDATA[<p><img src="https://cdn.staticaly.com/gh/Shuukoukou/image-repo@main/%E6%97%A5%E8%AF%AD%E5%90%AC%E5%8A%9B%E7%BB%83%E4%B9%A0-1/listening.3qd99qhktz20.webp"></p>
+<p>听听日语新闻，练练耳朵吧！</p>
+<iframe style='width: 710px;height: 400px' src="//player.bilibili.com/player.html?aid=515528473&bvid=BV1Kg411U77s&cid=832324432&page=1&high_quality=1&danmaku=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+
+<p>如果觉得上面的日语新闻有点快，可以听听N2的听力！</p>
+<iframe style='width: 710px;height: 400px' src="//player.bilibili.com/player.html?aid=53806648&bvid=BV1w4411W72D&cid=362512035&page=1&high_quality=1&danmaku=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+]]></content>
+      <categories>
+        <category>日语学习</category>
+      </categories>
+      <tags>
+        <tag>日本語ニュース</tag>
+      </tags>
+  </entry>
+</search>
